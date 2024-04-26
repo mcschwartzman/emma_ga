@@ -19,22 +19,19 @@ if __name__ == '__main__':
 
     while(1):
 
+        # measure how close each genome's product is to 1
         new_algorithm.evaluate_genomes(1)
 
-        # print([genome.fitness_metric for genome in new_algorithm.population])
-
+        # sort all genomes in the population by their fitness metric
         new_algorithm.sort_population()
-
-        # print(new_algorithm.population[0].fitness_metric)
 
         print([genome.fitness_metric for genome in new_algorithm.population])
 
+        # remove the bottom performers (number is the same as generation_size)
         new_algorithm.cull_population()
 
-        # print([genome.fitness_metric for genome in new_algorithm.population])
-
+        # spawn a new generation (first adding to unevaluated)
         new_algorithm.new_generation()
 
-        # print([genome.fitness_metric for genome in new_algorithm.population])
-
-        # sleep(1)    # slow things down a tiny bit
+        # uncomment to slow things down a tiny bit
+        # sleep(1)    
