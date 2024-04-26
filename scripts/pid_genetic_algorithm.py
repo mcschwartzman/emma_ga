@@ -46,7 +46,7 @@ class GeneticAlgorithm(object):
 
         # print(self.population)
 
-        self.population = self.population.sort(key=lambda genome: genome.fitness_metric)
+        self.population = sorted(self.population, key=lambda genome: genome.fitness_metric)
 
         # print(self.population)
 
