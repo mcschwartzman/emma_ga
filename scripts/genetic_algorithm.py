@@ -10,6 +10,7 @@ class GeneticAlgorithm(object):
 
         self.population_cap = population_cap
         self.generation_size = generation_size
+        self.mutation_chance = 0.1
         self.population = []
 
     def initialize_population(self):
@@ -88,6 +89,18 @@ class GeneticAlgorithm(object):
         new_p = random.choice([parent_a.chromosome['p_gain'], parent_b.chromosome['p_gain']])
         new_i = random.choice([parent_a.chromosome['i_gain'], parent_b.chromosome['i_gain']])
         new_d = random.choice([parent_a.chromosome['d_gain'], parent_b.chromosome['d_gain']])
-        
-        return Genome(new_p, new_i, new_d)
+
+        result = Genome(new_p, new_i, new_d)
+
+        if random.random() < self.mutation_chance:
+            # okay we're mutating!
+            # which gene would you like to mutate?
+
+            print("MUTATING")
+
+            gene_to_mutate = random.choice(['p_gain', 'i_gain', 'd_gain'])
+
+            result.chromosome[gene_to_mutate] = random.random() # needs to match how we generate genes in initialize_population
+
+        return result
 
