@@ -4,7 +4,7 @@ from genetic_algorithm import GeneticAlgorithm
 
 if __name__ == '__main__':
 
-    # Simulation targets
+    # Simulation targets (not in use yet!)
     p_target = 5
     i_target = 8
     d_target = 7
@@ -25,6 +25,8 @@ if __name__ == '__main__':
 
         new_algorithm.sort_population()
 
+        # print(new_algorithm.population[0].fitness_metric)
+
         print([genome.fitness_metric for genome in new_algorithm.population])
 
         new_algorithm.cull_population()
@@ -35,4 +37,4 @@ if __name__ == '__main__':
 
         # print([genome.fitness_metric for genome in new_algorithm.population])
 
-        sleep(5)
+        # sleep(1)    # slow things down a tiny bit
