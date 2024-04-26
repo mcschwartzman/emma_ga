@@ -34,4 +34,4 @@ if __name__ == '__main__':
         new_algorithm.new_generation()
 
         # uncomment to slow things down a tiny bit
-        # sleep(1)    
+        sleep(1)    

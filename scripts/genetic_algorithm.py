@@ -73,14 +73,16 @@ class GeneticAlgorithm(object):
 
         new_generation_size = self.population_cap - len(self.population)
 
-        for i in range(0, len(self.population), 2):
+        for i in range(self.generation_size):
 
-            # pair off the top parents in the population and make two children from each
+            # we want to basically cull by the generation_size,
+            # then add back that generation_size, so we can cull 6/8, then regen 6
 
-            child_1 = self.crossover_pair(self.population[i], self.population[i+1])
-            child_2 = self.crossover_pair(self.population[i], self.population[i+1])
+            parents = random.sample(self.population, 2)
 
-            self.unevaluated += [child_1, child_2]
+            child_1 = self.crossover_pair(parents[0], parents[1])
+
+            self.unevaluated.append(child_1)
 
     def crossover_pair(self, parent_a, parent_b):
 
