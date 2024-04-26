@@ -2,9 +2,11 @@ class Genome(object):
 
     def __init__(self, p_gain, i_gain, d_gain):
 
-        self.p_gain = p_gain
-        self.i_gain = i_gain
-        self.d_gain = d_gain
+        self.chromosome = {
+            "p_gain": p_gain,
+            "i_gain": i_gain,
+            "d_gain": d_gain
+        }
 
     def set_fitness_metric(self, fitness_metric):
 
